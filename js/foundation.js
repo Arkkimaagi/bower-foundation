@@ -116,7 +116,7 @@
         }
       });
     }
-    // # Patch to fix #5043 to move this *after* the if/else clause in order for Backbone and similar frameworks to have improved control over event binding and data-options updating. 
+    // # Patch to fix #5043 to move this *after* the if/else clause in order for Backbone and similar frameworks to have improved control over event binding and data-options updating.
     if (typeof method === 'string') {
       return this[method].call(this, options);
     }
@@ -618,7 +618,7 @@
   Foundation.libs.abide = {
     name : 'abide',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     settings : {
       live_validate : true,
@@ -799,7 +799,7 @@
         } else if (is_checkbox && required) {
           validations.push(this.valid_checkbox(el, required));
         } else {
-          
+
           if (validator) {
             valid = this.settings.validators[validator].apply(this, [el, required, parent]);
             validations.push(valid);
@@ -913,7 +913,7 @@
   Foundation.libs.accordion = {
     name : 'accordion',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     settings : {
       active_class: 'active',
@@ -979,7 +979,7 @@
   Foundation.libs.alert = {
     name : 'alert',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     settings : {
       callback: function (){}
@@ -1023,7 +1023,7 @@
   Foundation.libs.clearing = {
     name : 'clearing',
 
-    version: '5.3.3',
+    version: '5.3.3-libsass',
 
     settings : {
       templates : {
@@ -1035,7 +1035,7 @@
 
       // comma delimited list of selectors that, on click, will close clearing,
       // add 'div.clearing-blackout, div.visible-img' to close on background click
-      close_selectors : '.clearing-close, div.clearing-blackout', 
+      close_selectors : '.clearing-close, div.clearing-blackout',
 
       // Default to the entire li element.
       open_selectors : '',
@@ -1179,7 +1179,7 @@
       if ($el.parent().hasClass('carousel')) {
         return;
       }
-      
+
       $el.after('<div id="foundationClearingHolder"></div>');
 
       var grid = $el.detach(),
@@ -1190,7 +1190,7 @@
       } else {
         grid_outerHTML = grid[0].outerHTML;
       }
-      
+
       var holder = this.S('#foundationClearingHolder'),
           settings = $el.data(this.attr_name(true) + '-init'),
           data = {
@@ -1291,7 +1291,7 @@
           .removeClass('clearing-blackout');
         container.removeClass('clearing-container');
         visible_image.hide();
-        visible_image.trigger('closed.fndtn.clearing');        
+        visible_image.trigger('closed.fndtn.clearing');
       }
 
       // Event to re-enable scrolling on touch devices
@@ -1455,7 +1455,7 @@
           .hide();
       }
       return this;
-    }, 
+    },
 
     // directional methods
 
@@ -1582,7 +1582,7 @@
   Foundation.libs.dropdown = {
     name : 'dropdown',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     settings : {
       active_class: 'open',
@@ -1627,11 +1627,11 @@
           }
 
           var settings = target.data(self.attr_name(true) + '-init') || self.settings;
-          
+
           if(S(e.target).data(self.data_attr()) && settings.is_hover) {
             self.closeall.call(self);
           }
-          
+
           if (settings.is_hover) self.open.apply(self, [dropdown, target]);
         })
         .on('mouseleave.fndtn.dropdown', '[' + this.attr_name() + '], [' + this.attr_name() + '-content]', function (e) {
@@ -1653,8 +1653,8 @@
           if (S(e.target).closest('[' + self.attr_name() + ']').length > 0) {
             return;
           }
-          if (!(S(e.target).data('revealId')) && 
-            (parent.length > 0 && (S(e.target).is('[' + self.attr_name() + '-content]') || 
+          if (!(S(e.target).data('revealId')) &&
+            (parent.length > 0 && (S(e.target).is('[' + self.attr_name() + '-content]') ||
               $.contains(parent.first()[0], e.target)))) {
             e.stopPropagation();
             return;
@@ -1746,7 +1746,7 @@
 
     css : function (dropdown, target) {
       var left_offset = Math.max((target.width() - dropdown.width()) / 2, 8);
-      
+
       this.clear_idx();
 
       if (this.small()) {
@@ -1770,7 +1770,7 @@
     },
 
     style : function (dropdown, target, settings) {
-      var css = $.extend({position: 'absolute'}, 
+      var css = $.extend({position: 'absolute'},
         this.dirs[settings.align].call(dropdown, target, settings));
 
       dropdown.attr('style', '').css(css);
@@ -1802,7 +1802,7 @@
         }
 
         if (Foundation.rtl) {
-          return {left: p.left - this.outerWidth() + t.outerWidth(), 
+          return {left: p.left - this.outerWidth() + t.outerWidth(),
             top: p.top - this.outerHeight()};
         }
 
@@ -1896,7 +1896,7 @@
   Foundation.libs.equalizer = {
     name : 'equalizer',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     settings : {
       use_tallest: true,
@@ -1971,7 +1971,7 @@
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     cache : {},
 
@@ -2090,9 +2090,9 @@
           if (passed) {
             this.settings.directives[passed
               .scenario[1]].call(this, passed.el, passed.scenario[0], function () {
-                if (arguments[0] instanceof Array) { 
+                if (arguments[0] instanceof Array) {
                   var args = arguments[0];
-                } else { 
+                } else {
                   var args = Array.prototype.slice.call(arguments, 0);
                 }
 
@@ -2226,7 +2226,7 @@
       else {
         var cached_split = scenario[0].split(/,\s*$/),
         path             = cached_split[0],
-        directive        = '';               
+        directive        = '';
       }
 
       return [this.trim(path), this.convert_directive(directive), this.trim(media_query)];
@@ -2234,7 +2234,7 @@
 
     object : function(el) {
       var raw_arr = this.parse_data_attr(el),
-          scenarios = [], 
+          scenarios = [],
           i = raw_arr.length;
 
       if (i > 0) {
@@ -2289,7 +2289,7 @@
 
     parse_data_attr : function (el) {
       var raw = el.attr(this.attr_name()).split(/\[(.*?)\]/),
-          i = raw.length, 
+          i = raw.length,
           output = [];
 
       while (i--) {
@@ -2318,7 +2318,7 @@
   Foundation.libs.joyride = {
     name : 'joyride',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     defaults : {
       expose                   : false,     // turn on or off the expose feature
@@ -3204,7 +3204,7 @@
   Foundation.libs['magellan-expedition'] = {
     name : 'magellan-expedition',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     settings : {
       active_class: 'active',
@@ -3212,7 +3212,7 @@
       destination_threshold: 20, // pixels from the top of destination for it to be considered active
       throttle_delay: 30, // calculation throttling to increase framerate
       fixed_top: 0 // top distance in pixels assigend to the fixed element on scroll
-    }, 
+    },
 
     init : function (scope, method, options) {
       Foundation.inherit(this, 'throttle');
@@ -3235,10 +3235,10 @@
               settings = expedition.data('magellan-expedition-init'),
               hash = this.hash.split('#').join(''),
               target = $("a[name='"+hash+"']");
-          
+
           if (target.length === 0) {
             target = $('#'+hash);
-            
+
           }
 
 
@@ -3258,7 +3258,7 @@
           });
         })
         .on('scroll.fndtn.magellan', self.throttle(this.check_for_arrivals.bind(this), settings.throttle_delay));
-      
+
       $(window)
         .on('resize.fndtn.magellan', self.throttle(this.set_expedition_position.bind(this), settings.throttle_delay));
     },
@@ -3394,7 +3394,7 @@
   Foundation.libs.offcanvas = {
     name : 'offcanvas',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     settings : {
       open_method: 'move',
@@ -3976,7 +3976,7 @@
   Foundation.libs.reveal = {
     name : 'reveal',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     locked : false,
 
@@ -4020,7 +4020,7 @@
         .off('.reveal')
         .on('click.fndtn.reveal', '[' + this.add_namespace('data-reveal-id') + ']:not([disabled])', function (e) {
           e.preventDefault();
-        
+
           if (!self.locked) {
             var element = S(this),
                 ajax = element.data(self.data_attr('reveal-ajax'));
@@ -4420,7 +4420,7 @@
   Foundation.libs.slider = {
     name : 'slider',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     settings: {
       start: 0,
@@ -4460,15 +4460,15 @@
               if (!e.pageY) {
                 scroll_offset = window.scrollY;
               }
-              self.calculate_position(self.cache.active, (e.pageY || 
-                                                          e.originalEvent.clientY || 
-                                                          e.originalEvent.touches[0].clientY || 
-                                                          e.currentPoint.y) 
+              self.calculate_position(self.cache.active, (e.pageY ||
+                                                          e.originalEvent.clientY ||
+                                                          e.originalEvent.touches[0].clientY ||
+                                                          e.currentPoint.y)
                                                           + scroll_offset);
             } else {
-              self.calculate_position(self.cache.active, e.pageX || 
-                                                         e.originalEvent.clientX || 
-                                                         e.originalEvent.touches[0].clientX || 
+              self.calculate_position(self.cache.active, e.pageX ||
+                                                         e.originalEvent.clientX ||
+                                                         e.originalEvent.touches[0].clientX ||
                                                          e.currentPoint.x);
             }
           }
@@ -4652,7 +4652,7 @@
   Foundation.libs.tab = {
     name : 'tab',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     settings : {
       active_class: 'active',
@@ -4820,7 +4820,7 @@
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     settings : {
       additional_inheritable_classes : [],
@@ -5119,7 +5119,7 @@
   Foundation.libs.topbar = {
     name : 'topbar',
 
-    version: '5.3.3',
+    version: '5.3.3-libsass',
 
     settings : {
       index : 0,
@@ -5131,7 +5131,7 @@
       scrolltop : true, // jump to top when sticky nav menu toggle is clicked
       sticky_on : 'all'
     },
-    
+
     init : function (section, method, options) {
       Foundation.inherit(this, 'add_custom_rule register_media throttle');
       var self = this;
@@ -5182,7 +5182,7 @@
         return true;
       } else if (sticky && this.small() && settings.sticky_on === 'small') {
         return (matchMedia(Foundation.media_queries.small).matches && !matchMedia(Foundation.media_queries.medium).matches &&
-            !matchMedia(Foundation.media_queries.large).matches); 
+            !matchMedia(Foundation.media_queries.large).matches);
         //return true;
       } else if (sticky && this.medium() && settings.sticky_on === 'medium') {
         return (matchMedia(Foundation.media_queries.small).matches && matchMedia(Foundation.media_queries.medium).matches &&
@@ -5343,7 +5343,7 @@
             topbar.css('height', $this.siblings('ul').outerHeight(true) + topbar.data('height'));
           }
         });
-      
+
       S(window).off('.topbar').on('resize.fndtn.topbar', self.throttle(function () {
         self.resize.call(self);
       }, 50)).trigger('resize').trigger('resize.fndtn.topbar');
@@ -5472,7 +5472,7 @@
           } else {
             $titleLi = $('<li class="title back js-generated"><h5><a href="javascript:void(0)"></a></h5>');
           }
-          
+
           // Copy link to subnav
           if (settings.custom_back_text == true) {
             $('h5>a', $titleLi).html(settings.back_text);
@@ -5500,8 +5500,8 @@
       var total = 0,
           self = this;
 
-      $('> li', ul).each(function () { 
-        total += self.S(this).outerHeight(true); 
+      $('> li', ul).each(function () {
+        total += self.S(this).outerHeight(true);
       });
 
       return total;
@@ -5517,7 +5517,7 @@
 
     update_sticky_positioning: function() {
       var klass = '.' + this.settings.sticky_class,
-          $window = this.S(window), 
+          $window = this.S(window),
           self = this;
 
       if (self.settings.sticky_topbar && self.is_sticky(this.settings.sticky_topbar,this.settings.sticky_topbar.parent(), this.settings)) {

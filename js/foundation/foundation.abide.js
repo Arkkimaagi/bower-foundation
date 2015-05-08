@@ -4,7 +4,7 @@
   Foundation.libs.abide = {
     name : 'abide',
 
-    version : '5.3.3',
+    version : '5.3.3-libsass',
 
     settings : {
       live_validate : true,
@@ -185,7 +185,7 @@
         } else if (is_checkbox && required) {
           validations.push(this.valid_checkbox(el, required));
         } else {
-          
+
           if (validator) {
             valid = this.settings.validators[validator].apply(this, [el, required, parent]);
             validations.push(valid);
